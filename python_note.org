@@ -1,0 +1,758 @@
+* DONE Understanding programming
+You need two basic skills to become a programming
+** First, you need to know the programming language (Python) - you need to know the vocabulary and the grammar. You need to be able to spell the words in this new language properly and know how to construct well-formed “sentences” in this new language
+
+** Second, you need to “tell a story”. In writing a story, you combine words and sentences to convey an idea to the reader. There is a skill and art in constructing the story, and skill in story writing is improved by doing some writing and getting some feedback. In programming, our program is the “story” and the problem you are trying to solve is the “idea”. 
+
+* DONE Words and Sentences
+Unlike human languages, the Python vocabulary is actually pretty small. We call this “vocabulary” the “reserved words”. These are words that have very special meaning to Python. When Python sees these words in a Python program, they have one and only one meaning to Python. Later as you write programs you will make up your own words that have meaning to you called variables. You will have great latitude in choosing your names for your variables, but you cannot use any of Python’s reserved words as a name for a variable.
+
+The following words are some examples of reserved words in python
+*** and
+*** if
+*** else
+*** with
+*** for
+*** as
+*** in
+*** while
+*** break
+*** class
+*** import
+* DONE Conversing with Python
+Before conversing with python, you have to firt have the python interpreater installed on your system. This interpreter interpretes the language to binary code which can be understood by the computer.
+You can invoke the python intepreter by typing python or python3 from your command line or terminal
+
+#+begin_src python
+Python 3.5.1 (v3.5.1:37a07cee5969, Dec 6 2015, 01:54:25) [MSC v.1900 64 bit (AMD64)] on win32 Type "help", "copyright", "credits" or "license" for more information.
+ >>>
+#+end_src
+
+The >>> prompt is the Python interpreter’s way of asking you, “What do you want me to do next?” Python is ready to have a conversation with you. All you have to know is how to speak the Python language.
+Let’s say for example that you did not know even the simplest Python language words or sentences. You might want to use the standard line that astronauts use when they land on a faraway planet and try to speak with the inhabitants of the planet:
+
+#+begin_src python
+>>> I come in peace, please take me to your leader 
+File "<stdin>", line 1
+    I come in peace, please take me to your leader ^
+SyntaxError: invalid syntax >>>
+>>>
+#+end_src
+
+You can see that the python interpreter returns Syntaxerror: invalid syntax, which means it doesnt understand what was written in the python interpreter. Now lets say something python wil understand
+#+begin_src python
+>>> print('Hello world!')
+    Hello world!
+#+end_src
+Now the python intepreter understood exactly what we were trying to do and it printed Hello world to the output
+Lets take more example on this
+#+begin_src 
+>>> print('You must be the legendary god that comes from the sky')
+    You must be the legendary god that comes from the sky
+>>> print('We have been waiting for you for a long time')
+    We have been waiting for you for a long time
+>>> print('Our legend says you will be very tasty with mustard')
+    Our legend says you will be very tasty with mustard
+>>> print 'We will have a feast tonight unless you say
+File "<stdin>", line 1
+    print 'We will have a feast tonight unless you say 
+^ SyntaxError: Missing parentheses in call to 'print'
+ >>>
+#+end_src
+
+The conversation was going so well for a while and then you made the tiniest mistake using the Python language and Python brought the spears back out.
+At this point, you should also realize that while Python is amazingly complex and powerful and very picky about the syntax you use to communicate with it, Python is not intelligent. You are really just having a conversation with yourself, but using proper syntax.
+Lets try to exit our interpreter 
+#+begin_src python
+>>> good-bye 
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ NameError: name 'good' is not defined 
+>>> if you don't mind, I need to leave
+ File "<stdin>", line 1 
+    if you don't mind, I need to leave
+            ^ 
+SyntaxError: invalid syntax 
+>>> quit()
+
+#+end_src
+
+You will notice that the error is diﬀerent for the ﬁrst two incorrect attempts. The second error is diﬀerent because if is a reserved word and Python saw the reserved word and thought we were trying to say something but got the syntax of the sentence wrong.
+The proper way to say “good-bye” to Python is to enter quit() at the interactive chevron >>> prompt. 
+* DONE Variables, Expressions and Statement
+** Values and Types
+A value is one of the basic thing a program works with, like a letter or a number. e.g 1, 2, 5, "Hello World". These values belong to different types. for example 5 is an integer, "Hello World" is a string. A string are always enclosed in qoutation marks
+#+begin_src python
+>>> print(4)
+4
+>>> type('Hello, World!')
+<class 'str'>
+>>> type(17) 
+<class 'int'>
+>>> type(3.2) 
+<class 'float'>
+#+end_src
+
+In python you can use the type function to check the type of a particular value.
+An integer is a whole number without having any decimal point while float are real numbers that has decimal point. Strings are enclosed in qoutation mark like 'Hello World'
+Values like '17' and '3.2' could look like an integer and floating number to you at first. But to python they are considered as strings because they are enclosed in qoutation marks.
+#+begin_src python
+>>> type('17')
+<class 'str'> 
+>>> type('3.2') 
+<class 'str'>
+#+end_src
+** Variables 
+One of the most powerful features of a programming language is the ability to manipulate variables. A variable is a name that refers to a value.
+An assignment statement creates new variables and gives them values:
+#+begin_src python
+>>> message = 'My name is Abdul'
+>>> n = 17 
+>>> pi = 3.1415926535897931
+#+end_src
+
+The example above have 3 variables having different assignment. The first assigns a string to a variable named message, the second assigns an integer to a variable named n, and the third assigns an approximate value of pi to pi. Printing the above variables in python would result to their individual values that they have been assined.
+#+begin_src  python
+>>> print(message)
+My name is Abdul
+>>> print(n) 
+17 
+>>> print(pi) 
+3.141592653589793
+
+>>> type(message) 
+<class 'str'> 
+>>> type(n) 
+<class 'int'> 
+>>> type(pi) 
+<class 'float'>
+#+end_src
+From the above example it can be seen that the type of the variables are the type of value that has been assined to them. message as string, n as int, and pi as float
+** Variables names and keywords 
+Programmers generally choose names for their variables that are meaningful and document what the variable is used for.
+Variable names can be arbitrarily long. They can contain both letters and numbers, but they cannot start with a number. It is legal to use uppercase letters, but it is a good idea to begin variable names with a lowercase letter (you’ll see why later).
+The underscore character ( _ ) can appear in a name. It is often used in names with multiple words, such as my_name or airspeed_of_unladen_swallow. Variable names can start with an underscore character, but we generally avoid doing this unless we are writing library code for others to use.
+If you give a variable an illegal name, you get a syntax error:
+#+begin_src python
+>>> 76trombones = 'big parade' 
+    SyntaxError: invalid syntax 
+>>> more@ = 1000000 
+    SyntaxError: invalid syntax 
+>>> class = 'Advanced Theoretical Zymurgy' 
+    SyntaxError: invalid syntax
+#+end_src
+76trombones is illegal because it begins with a number. more@ is illegal because it contains an illegal character, @. But what’s wrong with class?
+It turns out that class is one of Python’s keywords. The interpreter uses keywords to recognize the structure of the program, and they cannot be used as variable names.
+Python reserves 35 keywords:
+| and     | continue | raise  | lambda |
+| finally | assert   | del    | from   |
+| is      | as       | for    | None   |
+| return  | async    | elif   | global |
+| True    | nonlocal | await  | while  |
+| break   | try      | else   | except |
+| False   | if       | not    | yield  |
+| class   | pass     | import | or     |
+| with    | in       |        
+** Statement
+A statement is a unit of code that the Python interpreter can execute. We have seen two kinds of statements: print being an expression statement and assignment.
+When you type a statement in interactive mode, the interpreter executes it and displays the result, if there is one.
+
+A script usually contains a sequence of statements. If there is more than one statement, the results appear one at a time as the statements execute.
+For example, the script
+#+begin_src python
+print(1) 
+x = 2 
+print(x)
+#+end_src
+The above code produces the output
+#+begin_src 
+1
+2
+#+end_src
+** Operators and operands
+Operators are special symbols that represent computations like addition and mul- tiplication. The values the operator is applied to are called operands.
+The operators +, -, *, /, and ** perform addition, subtraction, multiplication, division, and exponentiation. The order of operation is as follows.
+- Bracket ()
+- Exponentiation **
+- Multiplication *
+- Division \
+- Addition +
+- Subtraction -
+#+begin_src python
+>>> print(2 + 4)
+6
+>>> print(3 - 1)
+2
+>>> print(3 * 3)
+9
+>>> print(3 / 3)
+1
+>>> print(3 ** 3)
+9
+>>> print(4 * 4 ** 2)
+64
+>>> print((4 * 4) ** 2)
+256
+#+end_src
+** Expressions 
+An expression is a combination of values, variables, and operators. A value all by itself is considered an expression, and so is a variable, so the following are all legal expressions (assuming that the variable x has been assigned a value):
+x = 17
+x + 1
+
+If you type an expression in interactive mode, the interpreter evaluates it and displays the result:
+#+begin_src python
+>>> 1 + 2
+3
+#+end_src
+If you type an expression in interactive mode, the interpreter evaluates it and displays the result:
+** Order of Operations
+When more than one operator appears in an expression, the order of evaluation depends on the rules of precedence. For mathematical operators, Python follows mathematical convention (Parentheses, Exponentiation, Multiplication, Division, Addition, Subtraction)
+** Modulus operator
+The modulus operator works on integers and yields the remainder when the ﬁrst operand is divided by the second. In Python, the modulus operator is a percent sign (%). The syntax is the same as for other operators:
+#+begin_src python
+>>> quotient = 7 // 3
+>>> print(quotient) 
+2 
+>>> remainder = 7 % 3 
+>>> print(remainder) 
+1
+#+end_src
+So 7 divided by 3 is 2 with 1 left over.
+The modulus operator turns out to be surprisingly useful. For example, you can check whether one number is divisible by another: if x % y is zero, then x is divisible by y.
+You can also extract the right-most digit or digits from a number. For example, x % 10 yields the right-most digit of x (in base 10). Similarly, x % 100 yields the last two digits.
+** String operations
+The addition operator + works with string as well but in a different way. The + operator is used for concatinating two strings together.
+#+begin_src python
+>>> first = 10 
+>>> second = 15 
+>>> print(first+second) 
+25 
+>>> first = '100'
+>>> second = '150' 
+>>> print(first + second) 
+100150
+#+end_src
+The * operator also works with strings by multiplying the content of a string by an integer. For example:
+#+begin_src python
+>>> first = 'Test ' 
+>>> second = 3 
+>>> print(first * second) 
+Test Test Test
+#+end_src
+** Asking the user for input
+Sometimes we would like to take the value for a variable from the user via their keyboard. Python provides a built-in function called input that gets input from the keyboard1. When this function is called, the program stops and waits for the user to type something. When the user presses Return or Enter, the program resumes and input returns what the user typed as a string.
+#+begin_src python
+>>> inp = input() 
+Some silly stuff 
+>>> print(inp) 
+Some silly stuff
+#+end_src
+Before getting input from the user, it is a good idea to print a prompt telling the user what to input. You can pass a string to input to be displayed to the user before pausing for input:
+#+begin_src python
+>>> name = input('What is your name?\n') 
+What is your name?
+Chuck 
+>>> print(name) 
+Chuck
+#+end_src
+All input from a user are being converted to string in python. So if a user should enter the number 5 it is being treated as '5' in python
+#+begin_src python
+>>> age = input("Enter your age: ")
+Enter your age: 14
+>>> type(age)
+<class str>
+#+end_src
+Getting the user input as int, you need to convert it to integer manually
+#+begin_src python
+>>> age = input("Enter your age: ")
+Enter your age: 14
+>>> type(age)
+<class str>
+>>> age = int(age)
+>>> type(age)
+<class int>
+#+end_src
+** Comments 
+As programs get bigger and more complicated, they get more diﬃcult to read. Formal languages are dense, and it is often diﬃcult to look at a piece of code and ﬁgure out what it is doing, or why.
+For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing. These notes are called comments, and in Python they start with the # symbol:
+#+begin_src python
+# compute the percentage of the hour that has elapsed 
+percentage = (minute * 100) / 60
+#+end_src
+You can do a block of comment using three opeining and closing quotation marks
+#+begin_src python
+'''computes the percentageof an hour
+and stores the result in a variable percentage
+'''
+percentage = (minute * 100) / 60
+#+end_src
+** Choosing mnemonic variable names
+As long as you follow the simple rules of variable naming, and avoid reserved words, you have a lot of choice when you name your variables. In the beginning, this choice can be confusing both when you read a program and when you write your own programs. For example, the following three programs are identical in terms of what they accomplish, but very diﬀerent when you read them and try to understand them.
+#+begin_src python
+a = 35.0 
+b = 12.50 
+c = a * b 
+print(c)
+
+hours = 35.0 
+rate = 12.50 
+pay = hours * rate 
+print(pay)
+
+x1q3z9ahd = 35.0 
+x1q3z9afd = 12.50 
+x1q3p9afd = x1q3z9ahd * x1q3z9afd 
+print(x1q3p9afd)
+
+#+end_src
+The Python interpreter sees all three of these programs as exactly the same but humans see and understand these programs quite diﬀerently. Humans will most quickly understand the intent of the second program because the programmer has chosen variable names that reﬂect their intent regarding what data will be stored in each variable.
+* DONE Conditional Execution
+** Bolean Expressions
+A boolean expression is an expression that is either true or false. The following examples use the operator ==, which compares two operands and produces True if they are equal and False otherwise:
+#+begin_src python
+>>> 5 == 5
+True
+>>> 5 == 6
+False
+>>> type(True)
+<class 'bool'>
+>>> type(False)
+<class 'bool'>
+#+end_src
+The == operator is one of the comparison operators; the others are:
+x != y       # x is not equal to y
+x > y        # x is greater than y
+x < y        # x is less than y
+x >= y       # x is greater than or equal to  y
+x <= y       # x is less than or equal y
+x is y       # x is the same as y
+x is not y   # x is not the same as 
+** Logical operators
+There are three logical operators: and, or and not. The semantics (meaning) of these operators is similar to their meaning in English. For example
+x > 0 and x < 10
+is true only if x is greater than 0 and x is less than 10. 
+x > 0 or x < 10
+is true if x is greater than 0 or x is less than 10. 
+Finally the not operator negates a boolean expression, so not (x > y) is true if x is less than y (x < y)
+** Conditional execution
+In order to write useful programs, we almost always need the ability to check conditions
+and change the behavior of the program accordingly. Conditional statements
+give us this ability. The simplest form is the if statement:
+#+begin_src python
+if x > 0:
+    print('x is positive')
+#+end_src
+The boolean expression after the if statement is called the condition. We end the if statement with a colon character (:) abd the lines after the if statement are indented. If the logical conditon is true, then the indented code gets executed. If the logical condition is False, the indented code is skipped.
+If you enter an if statement in the Python interpreter, the prompt will change
+from three chevrons to three dots to indicate you are in the middle of a block of
+statements, as shown below:
+#+begin_src python
+>>> x = 3
+>>> if x < 10:
+...    print('Small')
+...
+Small
+>>>
+#+end_src
+** Alternative execution
+A second form of the if statement is alternative execution, in which there are tow possibilities and the condition determines which one gets executed.
+#+begin_src python
+if x % 2 == 0:
+    print('x is even')
+else:
+    print('x is odd')
+#+end_src
+From the above code, if the remainder when x is divided by 2 is 0 then the if statement is executed and 'x is even' is printed out to the screen, if the first condition is false then the else statment is executed and 'x is odd' is printed out to the screen.
+k
+** Chained Conditionals
+Sometimes there are more than two possibilities and we need more than two options. One way to express a computation like that is chaining up the conditions.
+#+begin_src python
+if x < y:
+    print('x is less than y')
+elif x > y:
+    print('x is greater than y')
+else:
+    print('x and y are equal')
+#+end_src
+Only one statement from the above condtions can be executed.
+There is no limit on the number of elif statements. If there is an else clause, it
+has to be at the end, but there doesn’t have to be one.
+#+begin_src python
+if choice == 'a':
+    print('Bad guess')
+elif choice == 'b':
+    print('Good guess')
+elif choice == 'c':
+    print('Close, but not correct')
+#+end_src
+** Nested Conditionals
+One conditional can also be nested within another. We could have written the
+three-branch example like this:
+#+begin_src python
+if x == y:
+    print('x and y are equal')
+else:
+    if x < y:
+        print('x is less than y')
+    else:
+        print('x is greater than y')
+#+end_src
+The outer conditional contains two branches.The first branch contains a simple
+statement. The second branch contains another if statement, which has two
+branches of its own. Those two branches are both simple statements, although
+they could have been conditional statements as well.
+Although the indentation of the statements makes the structure apparent, nested
+conditionals become difficult to read very quickly. In general, it is a good idea to
+avoid them when you can.
+Logical operators often provide a way to simplify nested conditional statements.
+For example, we can rewrite the following code using a single conditional:
+#+begin_src python
+if 0 < x:
+    if x < 10:
+        print('x is a positive single-digit number.')
+#+end_src
+The print statement executes only if the both conditions evaluates to true. We can rewrite the above code using logical operators like this
+#+begin_src python
+if 0 < x and x < 10:
+    print('x is a positive single-digit number.')
+#+end_src
+** Catching exceptions using try and except
+Sometimes wen we ask users for input, we can't really control the kind of input the user sends in to our application, We need to find a way to prevent the user input from breaking or causing our application to fail and to send a clear message out to the user giving him a clue of how his input is wrong or just sending a message to the user. We can do this using a try and except block, for example
+#+begin_src python
+age = input("Enter your age: ")
+try:
+    age = int(age)
+    print("You are", age, "Years old")
+except:
+    print("Enter and integer")
+#+end_src
+when you run the above script
+#+begin_src python
+Enter age: 25
+You are 25 Years old
+Enter age kk
+Enter an integer
+#+end_src
+Without using the try and except block the code is going to blow up when the user enters a string
+#+begin_src python
+age = input("Enter your age: ")
+age = int(age)
+print("You are", age, "Years old")
+#+end_src
+you will get an error like this if the user enters an input like 'kk'
+#+begin_src python
+Enter age kk
+Traceback (most recent call last):
+  File "/home/khadi/main.py", line 2, in <module>
+    age = int(age)
+ValueError: invalid literal for int() with base 10: 'kk'
+#+end_src
+* TODO Functions
+** Function calls
+performs a computation. When you define a function, you specify the name and
+the sequence of statements. Later, you can “call” the function by name. We have
+already seen one example of a function call:
+#+begin_src python
+>>> type(32)
+<class 'int'>
+#+end_src
+The function's name is type. The expression enclosed in parentheses is referred to as the function's parameter. A value or variable that we are giving into the function as input is known as an argument. For the type function, the outcome is the argument's type.
+It's usual to refer to a function as one that "takes" an argument and "returns" a value. The return value refers to the outcome.
+** Built in Functions
+There are some significant built-in functions in Python that we may utilize without having to supply the function definition. We may utilize a collection of functions that Python's developers built to address common issues and provided in Python.
+The greatest and smallest values in a list are provided by the max and min functions, respectively:
+#+begin_src python
+>>> max('Hello world')
+'w'
+>>> min('Hello world')
+' '
+>>>
+#+end_src
+The "largest character" in the string is shown to be the letter "w" by the max function, and the "smallest character," which is revealed to be a space by the min function.
+Another typical built-in function is the len function, which returns the number of items in its input. The number of characters in the string is returned by len if the argument is a string.
+#+begin_src python
+>>> len('Hello world')
+11
+>>>
+#+end_src
+These functions are not restricted to strings. As we shall learn in subsequent chapters, they are capable of operating on any collection of values.
+The names of built-in functions should be treated as reserved terms, hence "max" shouldn't be used as a variable name.
+** Type Conversion functions
+Python also provides built-in functions that convert values from one type to another.
+The int function takes any value and converts it to an integer, if it can, or
+complains otherwise:
+#+begin_src python
+>>> int('32')
+32
+>>> int('Hello')
+ValueError: invalid literal for int() with base 10: 'Hello'
+#+end_src
+int can convert floating-point values to integers, but it doesn’t round off; it chops
+off the fraction part:
+#+begin_src python
+>>> int(3.99999)
+3
+>>> int(-2.3)
+-2
+#+end_src
+float converts integers and strings to floating-point numbers:
+#+begin_src python
+>>> float(32)
+32.0
+>>> float('3.14159')
+3.14159
+#+end_src
+Finally, str converts its argument to a string:
+#+begin_src python
+>>> str(32)
+'32'
+>>> str(3.14159)
+'3.14159
+#+end_src
+** Math functions
+Python has a math module that provides most of the familiar mathematical functions.
+Before we can use the module, we have to import it:
+#+begin_src python
+>>> import math
+#+end_src
+This statement creates a module object named math. If you print the module
+object, you get some information about it:
+#+begin_src python
+>>> print(math)
+<module 'math' (built-in)>
+#+end_src
+The module object contains the functions and variables defined in the module. To
+access one of the functions, you have to specify the name of the module and the
+name of the function, separated by a dot (also known as a period). This format is
+called dot notation.
+#+begin_src python
+>>> fact = math.factorial(5)
+>>> print(fact)
+120
+>>> log10 = math.log10(10)
+>>> print(log10)
+1.0
+#+end_src
+
+** Random numbers
+The standard Python library has the random module, which offers methods for generating random numbers and carrying out random operations. It frequently appears in a variety of uses, including games, simulations, cryptography, and more. The random module offers the following major features and capabilities:
+*** Generating Random Numbers:
+**** random.random(): Returns a random floating-point number in the range [0.0, 1.0).
+#+begin_src python
+import random
+rand_num = random.random()
+print(rand_num)
+0.6428466400213003
+#+end_src
+**** random.uniform(a, b): Returns a random floating-point number between a and b, inclusive.
+#+begin_src python
+import random
+uniform_num = random.uniform()
+print(uniform_num)
+3.5601973863956498
+#+end_src
+*** Generating Random Integers:
+**** random.randint(a, b): Returns a random integer between a and b, inclusive.
+#+begin_src python
+import random
+rand_int = random.randint(1, 5)
+print(rand_int)
+1
+#+end_src
+**** random.randrange(start, stop, step): Returns a random element from the sequence of numbers created using range(start, stop, step).
+#+begin_src python
+import random
+randrange_num = random.randrange(1, 10, 2)
+print(randrange_num)
+3
+#+end_src
+*** Generating Random Sequences:
+**** random.choice(seq): Returns a random element from the given sequence seq.
+#+begin_src python
+number = [1, 3, 5, 7, 8]
+random_choice = random.choice(number)
+print(random_choice)
+3
+#+end_src
+**** random.shuffle(seq): Randomly shuffles the elements of the sequence seq in place.
+#+begin_src python
+import random
+number = [1, 3, 5, 7, 8]
+random.shuffle(number)
+print(number)
+[3, 8, 5, 7, 1]
+#+end_src
+** Adding new functions
+In Python, a function is a reusable block of code that performs a specific task. It allows you to encapsulate a set of instructions into a single named unit, making your code more organized, modular, and easier to maintain. Functions also enable you to avoid writing the same code multiple times by allowing you to call the function whenever you need to execute those instructio
+#+begin_src python
+def print_statements():
+    print("Hello Everyone")
+    print("My name is Abdul")
+    print("Byeee")
+#+end_src
+In this example, print_statements is the name of the function. It has no parameters (the empty parentheses ()), which means it doesn't accept any inputs when called. The indented block of code underneath the function definition is the function body, containing the instructions that the function will execute when it's called.
+
+When you define a function like this, it doesn't immediately execute the code inside it. Instead, it creates a "recipe" for executing that code. To actually run the code inside the function, you need to call the function by its name followed by parentheses:
+#+begin_src python
+>>> print_statements()
+Hello Everyone
+My name is Abdul
+Byeee
+#+end_src
+Functions allow you to encapsulate logic, promote code reusability, and make your codebase more organized and readable. They are a fundamental concept in programming, enabling you to break down complex tasks into smaller, manageable pieces of code.
+**** The def keyword is used to define a new function.
+**** print_statements is the function name.
+**** The colon : indicates the start of the function's body.
+**** The indented lines underneath the function definition are the statements that the function will execute.
+**** When you call print_statements(), the code inside the function is executed in order.
+** Flow of execution 
+You must understand the flow of execution—the order in which statements are carried out—in order to guarantee that a function is declared before being used for the first time.
+The program's opening statement is where execution always starts. Each statement is carried out one at a time, in ascending order.
+Although the order in which a program runs is unaffected by function declarations, keep in mind that statements inside a function are not performed until the function is invoked.
+A function call is comparable to a detour in the execution process. The flow moves to the function's body rather than the subsequent statement, runs all the statements there, and then returns to where it left off.
+When you consider that one function can call another, that seems very straightforward.
+The software could need to run the statements in another function while still in the middle of another function. However, the computer software can also need to run a different function at the same time!
+Fortunately, Python does a fantastic job of keeping track of its location, so after each completed function, the program resumes execution of the function that called it.
+The program ends when it reaches that point.
+What can we learn from this scandalous story? It's not always necessary to read a program from top to bottom. Sometimes it makes more sense to execute things according to plan.
+** Parameters and arguments 
+In Python, both parameters and arguments are concepts related to functions, but they have different roles and meanings.
+*** Parameters:
+Parameters are placeholders or variables that you define in the function's definition. They act as placeholders for the values that you will pass to the function when you call it. Parameters allow you to make your functions more flexible and reusable by accepting different values each time the function is called.
+
+In a function definition, parameters are listed within the parentheses after the function name. Here's an example:
+#+begin_src python
+def greet(name):
+    print("Hello, " + name)
+
+# 'name' is a parameter of the 'greet' function
+#+end_srC
+*** Arguments:
+Arguments are the actual values that you pass to a function when you call it. When you call a function, you provide arguments that match the order and type of the parameters declared in the function definition. Arguments are the data that the function operates on.
+In the context of calling a function, arguments are the values enclosed within the parentheses.
+
+Example of calling a function with arguments:
+#+begin_src python
+greet("Alice")
+# Here, "Alice" is an argument passed to the 'greet' function
+#+end_srC
+In this example, "Alice" is the argument provided when calling the greet function. The argument is passed to the function's parameter name.
+** Fruitful functions and void functions
+*** Fruitful Function
+A fruitful function, also known as a returning function, is a function that performs a task and returns a value as its result. It takes input, processes it, and produces an output that can be used in other parts of the program. Fruitful functions are essential for calculations and tasks that yield a meaningful result.
+
+Example of a fruitful function in Python:
+#+begin_src python
+def add_numbers(a, b):
+    sum = a + b
+    return sum
+
+result = add_numbers(5, 7)
+print("The sum is:", result)
+The sum is 12
+#+end_src
+*** Void Function:
+A void function, also known as a non-returning function, is a function that performs a task without returning any value. It executes a sequence of statements or actions, but it doesn't produce an output that can be used in the rest of the program. Void functions are useful for performing actions, changing the state of the program, or executing a sequence of steps.
+
+Example of a void function in Python:
+#+begin_src python
+def greet(name):
+    print("Hello,", name)
+
+greet("Alice")
+Hello Alice
+#+end_src
+In this example, the greet function takes a parameter name and prints a greeting message. The function does not return any value; it simply performs the action of printing the message.
+* TODO Iterations
+** Updating Variable
+A common pattern in assignment statements is an assignment statement that updates
+a variable, where the new value of the variable depends on the old
+x = x + 1
+This means “get the current value of x, add 1, and then update x with the new
+value.”
+If you try to update a variable that doesn’t exist, you get an error, because Python
+evaluates the right side before it assigns a value to x:
+#+begin_src python
+>>> x = x + 1
+NameError: name 'x' is not defined
+#+end_src
+Before you can update a variable, you have to initialize it, usually with a simple
+assignment:
+#+begin_src python
+>>> x = 0
+>>> x = x + 1
+#+end_src
+You can also increment a variable using this format
+#+begin_src python
+>>> x = 0
+>>> x += 1
+#+end_src
+** The While Statement
+The while statement in Python is used to create a loop that repeatedly executes a block of code as long as a specified condition remains true. This allows you to perform tasks multiple times until the condition becomes false. The condition is evaluated before each iteration of the loop.
+
+Here's the basic structure of the while statement:
+#+begin_src python
+while condition:
+    # Code to be executed while the condition is true
+#+end_src
+Example 1: Counting from 1 to 5 using a while loop
+#+begin_src python
+count = 1
+while count <= 5:
+    print(count)
+    count += 1  # Increment the count by 1 in each iteration
+
+#+end_src
+In this example, the while loop continues to execute as long as the count variable is less than or equal to 5. It prints the value of count and increments it by 1 in each iteration. The loop stops when count becomes 6, as the condition count <= 5 becomes false.
+
+Example 2: User input validation using a while loop
+#+begin_src python
+password = input("Enter your password: ")
+while password != "secret":
+    print("Incorrect password. Try again.")
+    password = input("Enter your password: ")
+print("Access granted.")
+#+end_src
+In this example, the while loop prompts the user to enter their password repeatedly until they enter the correct password ("secret"). As long as the condition password != "secret" is true, the loop continues to prompt the user. Once the correct password is entered, the loop terminates, and the "Access granted." message is printed.
+** Infinite Loops:
+Be cautious when using while loops, as it's possible to accidentally create infinite loops (loops that never end) if the condition never becomes false. Make sure to include a mechanism within the loop to change the condition and eventually exit the loop.
+
+Example of an infinite loop:
+#+begin_src python
+# This loop will run forever because the condition is always true
+while True:
+    print("This is an infinite loop!")
+#+end_src
+To avoid infinite loops, ensure that the condition inside the while loop eventually becomes false to allow the loop to exit.
+
+In summary, the while statement is used to create loops that continue executing as long as a specified condition remains true. It's a powerful construct for performing repetitive tasks until a certain condition is met.
+** Finishing Iterations with Continue
+The continue statement in programming, including Python, is used within loops (such as for and while loops) to control the flow of execution and skip the current iteration of the loop. When the continue statement is encountered, the remaining code within the current iteration is skipped, and the loop proceeds to the next iteration.
+
+In other words, continue allows you to immediately jump to the next iteration of the loop without executing the rest of the code within the current iteration. It's particularly useful when you want to skip certain iterations based on a specific condition without prematurely ending the entire loop.
+
+Here's the general syntax of how to use continue:
+#+begin_src python
+whle
+    if condition:
+        continue
+    # Code to be executed if the condition is false
+#+end_src
+Let's illustrate the usage of continue with an example:
+
+Example: Skipping even numbers using continue in a while loop
+#+begin_src python
+number = 1
+while number <= 10:
+    if number % 2 == 0:
+        number += 1
+        continue  # Skip even numbers
+    print(number)
+    number += 1
+#+end_src
+In this example, the while loop starts with number set to 1. It continues iterating while number is less than or equal to 10. If the current number is even (i.e., number % 2 == 0), the continue statement is encountered. The rest of the code within the loop for that iteration is skipped, and the loop proceeds to the next iteration.
+
+For odd numbers, the print statement is executed, displaying the current odd number. After processing each iteration, the number is incremented by 1 to move to the next value.
+
+When you run this code, you will see that only odd numbers between 1 and 10 are printed, while even numbers are skipped using the continue statement.
+
