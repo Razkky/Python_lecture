@@ -20,10 +20,10 @@ The following words are some examples of reserved words in python
 *** class
 *** import
 * DONE Conversing with Python
-Before conversing with python, you have to firt have the python interpreater installed on your system. This interpreter interpretes the language to binary code which can be understood by the computer.
+Before conversing with python, you have to first have the python interpreater installed on your system. This interpreter interpretes the language to binary code which can be understood by the computer.
 You can invoke the python intepreter by typing python or python3 from your command line or terminal
 
-#+begin_src python
+#+begin_src  python
 Python 3.5.1 (v3.5.1:37a07cee5969, Dec 6 2015, 01:54:25) [MSC v.1900 64 bit (AMD64)] on win32 Type "help", "copyright", "credits" or "license" for more information.
  >>>
 #+end_src
@@ -46,7 +46,7 @@ You can see that the python interpreter returns Syntaxerror: invalid syntax, whi
 #+end_src
 Now the python intepreter understood exactly what we were trying to do and it printed Hello world to the output
 Lets take more example on this
-#+begin_src 
+#+begin_src python
 >>> print('You must be the legendary god that comes from the sky')
     You must be the legendary god that comes from the sky
 >>> print('We have been waiting for you for a long time')
@@ -720,7 +720,7 @@ Be cautious when using while loops, as it's possible to accidentally create infi
 Example of an infinite loop:
 #+begin_src python
 # This loop will run forever because the condition is always true
-while True:
+whie True:
     print("This is an infinite loop!")
 #+end_src
 To avoid infinite loops, ensure that the condition inside the while loop eventually becomes false to allow the loop to exit.
